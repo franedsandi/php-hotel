@@ -39,6 +39,44 @@
         ],
 
     ];
-
 ?>
-!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Hotel Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5 text-center">
+        <h1>Hotel Information</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Parking</th>
+                    <th>Vote</th>
+                    <th>Distance to Center</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach ($hotels as $hotel) {
+                        echo '<tr>';
+                        echo '<td>' . $hotel['name'] . '</td>';
+                        echo '<td>' . $hotel['description'] . '</td>';
+                        echo '<td>' . ($hotel['parking'] ? 'Yes' : 'No') . '</td>';
+                        echo '<td>' . $hotel['vote'] . '</td>';
+                        echo '<td>' . $hotel['distance_to_center'] . ' Km.' . '</td>';
+                        echo '</tr>';
+                    }
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
